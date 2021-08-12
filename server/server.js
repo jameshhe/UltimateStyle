@@ -2,16 +2,18 @@ import mongoose from "mongoose";
 import cors from "cors";
 import express from "express";
 import routes from "./routes/index.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
 app.use(cors());
 
-const MONGODB_API_URL = `mongodb+srv://jameshuang:haircutuberjameshuang@haircut-uber-db.zlcc3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const PORT = process.env.PORT || 3000;
 
 mongoose
-  .connect(MONGODB_API_URL, {
+  .connect(process.env.MONGODB_API_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
