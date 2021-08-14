@@ -50,32 +50,28 @@ const UserLanding = () => {
     "https://images.unsplash.com/photo-1599206676335-193c82b13c9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1251&q=80",
   ];
   return (
-    <div className="h-100 w-100 align-items-center m-0">
+    <div className="container">
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="justify-content-center align-items-center h-100">
-          <div className="row">
-            <div className="col-6 mx-auto  align-self-center text-center">
-              <h1 className="display-1">
-                <b>Hello</b>, {user.firstName}
-              </h1>
-              <p>
-                You have{" "}
-                <Link to="/userProfile">{numAppointments} appointments</Link>
-              </p>
-            </div>
+        <div>
+          <div className="text-center">
+            <h1 className="display-1 mt-5">
+              <b>Hello</b>, {user.firstName}
+            </h1>
+            <p>
+              You have{" "}
+              <Link to="/userProfile">{numAppointments} appointments</Link>
+            </p>
           </div>
-          <div className="row justify-content-center align-items-start h-100">
-            <div className="card-deck col-10">
-              {services.map((service, index) => (
-                <ServiceBox
-                  key={index}
-                  imageURL={imageURLs[index]}
-                  service={service}
-                />
-              ))}
-            </div>
+          <div className="row row-cols-1 row-cols-md-3">
+            {services.map((service, index) => (
+              <ServiceBox
+                key={index}
+                imageURL={imageURLs[index]}
+                service={service}
+              />
+            ))}
           </div>
         </div>
       )}
