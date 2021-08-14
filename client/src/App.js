@@ -15,6 +15,10 @@ import RegisterUser from "./components/register/registerUser";
 import RegisterStylist from "./components/register/registerStylist";
 import SendPassword from "./components/sendPassword";
 
+import dotenv from "dotenv";
+
+dotenv.config();
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
