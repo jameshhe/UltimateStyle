@@ -5,7 +5,6 @@ import StylistInfo from "./stylistInfo";
 import Loading from "../loading";
 import SearchFilter from "./searchFilter";
 import { Map } from "./map";
-import base_url from "../../base_url";
 
 const StylistsList = () => {
   const URL = `${process.env.REACT_APP_BACKEND}/api/stylists/search`;

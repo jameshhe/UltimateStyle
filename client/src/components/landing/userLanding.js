@@ -4,7 +4,6 @@ import ServiceBox from "./serviceBox";
 import axios from "axios";
 import Loading from "../loading";
 import { Link } from "react-router-dom";
-import base_url from "../../base_url";
 
 const UserLanding = () => {
   const { user } = useSelector((state) => state.auth);

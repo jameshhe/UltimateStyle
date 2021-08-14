@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import base_url from "../base_url";
 
 const SendPassword = () => {
   const url = `${process.env.REACT_APP_BACKEND}/api/users/forgotPassword`;

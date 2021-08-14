@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import Loading from "../loading";
-import base_url from "../../base_url";
 
 const EditProfile = () => {
   const [firstName, setFirstName] = useState("");

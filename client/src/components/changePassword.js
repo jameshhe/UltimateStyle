@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useStore } from "react-redux";
-import base_url from "../base_url";
 
 const ChangePassword = () => {
   const store = useStore();

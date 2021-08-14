@@ -2,7 +2,7 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
-import base_url from "../base_url";
+
 // Register User
 axios.defaults.baseURL = process.env.REACT_APP_BACKEND;
 export const addService = (id, service) => (dispatch) => {

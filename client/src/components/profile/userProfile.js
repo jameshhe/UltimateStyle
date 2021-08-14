@@ -9,7 +9,6 @@ import ReviewBox from "./reviewBox";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import AppointmentsList from "./appointmentsList";
-import base_url from "../../base_url";
 
 const UserProfile = () => {
   const [isLoading, setIsLoading] = useState(true);
