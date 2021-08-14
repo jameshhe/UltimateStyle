@@ -6,7 +6,6 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 axios.defaults.baseURL = process.env.REACT_APP_BACKEND;
 
 export const registerUser = (userData, history) => (dispatch) => {
-  console.log(`User data in auth action: ${userData.email}`);
   axios
     .post("/api/users/register", userData)
     .then(() => history.push("/login")) // re-direct to login on successful register
