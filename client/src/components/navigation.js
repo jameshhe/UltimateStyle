@@ -37,7 +37,7 @@ const Navigation = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
+            <Nav className="me-auto">
               <Nav.Link
                 href={`/stylists/appointments/upcoming/stylistId=${user.user.id}`}
               >
@@ -105,11 +105,10 @@ const Navigation = () => {
               onChange={(event) => setName(event.target.value)}
               value={name}
               type="text"
-              placeholder="Stylist"
-              className="mr-sm-2"
+              placeholder="Search a Stylist"
             />
           </Form>
-          <a href={`${searchURL}name/${name}`}>
+          <a className="ms-2" href={`${searchURL}name/${name}`}>
             <Button variant="dark">Search</Button>
           </a>
           {user.isAuthenticated ? (
