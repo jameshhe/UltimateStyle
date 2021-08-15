@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import logo from "../UltimateStyle.png";
+
 import {
   Button,
   Navbar,
@@ -7,6 +9,7 @@ import {
   NavDropdown,
   Form,
   FormControl,
+  Container,
 } from "react-bootstrap";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import { logoutUser } from "../actions/authActions";
@@ -20,24 +23,39 @@ const Navigation = () => {
   const onLogout = () => {
     dispatch(logoutUser());
   };
-  if (user.user.role === "stylist") {
-    return (
-      <div>
-        <Navbar
-          bg="light"
-          variant="light"
-          expand="lg"
-          className="border-bottom"
-          fixed="top"
-        >
-          <Navbar.Brand
-            href={`/stylists/stylistLanding/stylistId=${user.user.id}`}
-          >
-            Ultimate Style
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+
+  return (
+    <Navbar
+      bg="dark"
+      variant="dark"
+      expand="lg"
+      className="border-bottom"
+      fixed="top"
+    >
+      <Navbar.Brand href="/userLanding">
+        {" "}
+        <img
+          src={logo}
+          width="64"
+          height="32"
+          className="d-inline-block align-top"
+          alt="Ultimate Style"
+        />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <NavDropdown title="Services" id="basic-nav-dropdown">
+            {/*<NavDropdown.Item href="/retail">Overview</NavDropdown.Item>*/}
+            <NavDropdown.Item href={searchURL + "services/haircuts"}>
+              Haircuts
+            </NavDropdown.Item>
+            <NavDropdown.Item href={searchURL + "services/waxing"}>
+              Waxing
+            </NavDropdown.Item>
+          </NavDropdown>
+          {user.user.role === "stylist" ? (
+            <div>
               <Nav.Link
                 href={`/stylists/appointments/upcoming/stylistId=${user.user.id}`}
               >
@@ -61,67 +79,37 @@ const Navigation = () => {
               <Nav.Link href={`/stylists/stylistId=${user.user.id}/info`}>
                 My Profile
               </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-          {user.isAuthenticated ? (
-            <button onClick={onLogout} className="btn btn-warning mx-2">
-              Logout
-            </button>
+            </div>
           ) : (
             <></>
           )}
-        </Navbar>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        {/*make nav bar bigger brigher*/}
-        <Navbar
-          bg="light"
-          variant="light"
-          expand="lg"
-          className="border-bottom"
-          fixed="top"
-        >
-          <Navbar.Brand href="/userLanding">Ultimate Style</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <NavDropdown title="Services" id="basic-nav-dropdown">
-                {/*<NavDropdown.Item href="/retail">Overview</NavDropdown.Item>*/}
-                <NavDropdown.Item href={searchURL + "services/haircuts"}>
-                  Haircuts
-                </NavDropdown.Item>
-                <NavDropdown.Item href={searchURL + "services/waxing"}>
-                  Waxing
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link href="/UserProfile">My Profile</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-          <Form inline>
-            <FormControl
-              onChange={(event) => setName(event.target.value)}
-              value={name}
-              type="text"
-              placeholder="Search a Stylist"
-            />
-          </Form>
-          <a className="ms-2" href={`${searchURL}name/${name}`}>
-            <Button variant="dark">Search</Button>
-          </a>
           {user.isAuthenticated ? (
-            <button onClick={onLogout} className="btn btn-warning mx-2">
-              Logout
-            </button>
+            <Nav.Link href="/UserProfile">My Profile</Nav.Link>
           ) : (
             <></>
           )}
-        </Navbar>
-      </div>
-    );
-  }
+        </Nav>
+      </Navbar.Collapse>
+      <Form inline>
+        <FormControl
+          onChange={(event) => setName(event.target.value)}
+          value={name}
+          type="text"
+          placeholder="Search a Stylist"
+        />
+      </Form>
+      <a className="ms-2" href={`${searchURL}name/${name}`}>
+        <Button variant="dark">Search</Button>
+      </a>
+      {user.isAuthenticated ? (
+        <button onClick={onLogout} className="btn btn-warning mx-2">
+          Logout
+        </button>
+      ) : (
+        <></>
+      )}
+    </Navbar>
+  );
 };
 
 export default Navigation;

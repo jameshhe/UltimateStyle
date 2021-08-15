@@ -5,30 +5,28 @@ import logo from "../UltimateStyle.png";
 
 const Landing = () => {
   const [modalShow, setModalShow] = useState(false);
-
+  const img_url =
+    "https://images.unsplash.com/photo-1595284843477-f609b0f91e3f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1400&q=80";
   return (
     <div
       style={{
-        backgroundImage: `url("https://images.pexels.com/photos/3037244/pexels-photo-3037244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")`,
+        backgroundImage: `url(${img_url})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        width: "100vw",
-        height: "100vh",
       }}
       className="h-100 text-center justify-content-center align-items-center"
     >
       <img
-        className="mx-auto"
+        className="mt-5 mx-auto"
         style={{ width: "350px", height: "225px" }}
         src={logo}
       />
-      <h1 className="mx-auto">
-        <b>Welcome</b> to Ultimate Styles
+      {/* <h1 className="mx-auto text-white">
+        <b>Welcome</b> to Ultimate Style
       </h1>
-      <h1 className="mx-auto display-2 text-white">
-        <b>REVIEW</b> AND <b>BOOK</b> STYLISTS MADE EASY
-      </h1>
+      <h5 className="mx-auto text-white">
+        <b>BOOK</b> AND <b>REVIEW</b> STYLISTS MADE EASY
+      </h5> */}
       <div className="mx-auto d-flex justify-content-center mt-lg-5">
         {/*<Link*/}
         {/*    to="/register"*/}

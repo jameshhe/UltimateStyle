@@ -7,7 +7,7 @@ const RegisterPopup = (props) => {
   return (
     <div>
       <Modal {...props} centered>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Register for Ultimate Style</Modal.Title>
         </Modal.Header>
         <Modal.Body className="mx-auto">
