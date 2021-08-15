@@ -124,10 +124,10 @@ const EditProfile = () => {
 
                   <hr />
 
-                  <Link className="btn btn-secondary mr-2" to="/userLanding">
+                  <Link className="btn btn-secondary me-2" to="/userLanding">
                     Cancel
                   </Link>
-                  <button className="btn btn-primary mr-2" type="submit">
+                  <button className="btn btn-primary me-2" type="submit">
                     Save
                   </button>
                   <Link to="/resetPassword" className="btn btn-danger">
