@@ -38,7 +38,7 @@ const Navigation = () => {
           src={logo}
           width="64"
           height="32"
-          className="d-inline-block align-top"
+          className="d-inline-block align-top mx-2"
           alt="Ultimate Style"
         />
       </Navbar.Brand>
