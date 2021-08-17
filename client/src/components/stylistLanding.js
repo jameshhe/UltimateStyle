@@ -9,26 +9,26 @@ import StylistCalendar from "./stylist/stylistCalendar";
 import AddServices from "./stylist/addServices";
 import AddAvailability from "./stylist/AddAvailability";
 import UpcomingAppointments from "./stylist/upcomingAppointments";
-const appointmentsOrAdd = ({ stylist }, { services }, { appointments }) => {
-  console.log("servicios, ", services);
-  console.log("appuntomentos, ", appointments);
-  if (appointments.length <= 0) {
-    return (
-      <div>
-        <AddAvailability />
-      </div>
-    );
-  }
-  if (services.length <= 0) {
-    return (
-      <div>
-        You need to add services that you offer before you are able to have
-        customers book appointments with
-        <AddServices />
-      </div>
-    );
-  }
-};
+// const appointmentsOrAdd = ({ stylist }, { services }, { appointments }) => {
+//   console.log("servicios, ", services);
+//   console.log("appuntomentos, ", appointments);
+//   if (appointments.length <= 0) {
+//     return (
+//       <div>
+//         <AddAvailability />
+//       </div>
+//     );
+//   }
+//   if (services.length <= 0) {
+//     return (
+//       <div>
+//         You need to add services that you offer before you are able to have
+//         customers book appointments with
+//         <AddServices />
+//       </div>
+//     );
+//   }
+// };
 const StylistLanding = () => {
   const { user } = useSelector((state) => state.auth);
   const [appointments, setAppointments] = useState([]);
@@ -44,7 +44,7 @@ const StylistLanding = () => {
         });
     };
     fetchStylist();
-  }, [services]);
+  }, []);
 
   useEffect(() => {
     const fetchAppointments = async () => {
@@ -72,11 +72,6 @@ const StylistLanding = () => {
             Style!
           </h1>
           <div className="container"></div>
-          {appointmentsOrAdd(
-            { stylist: user },
-            { services: services },
-            { appointments: appointments }
-          )}
           <div>
             <div>
               <UpcomingAppointments />

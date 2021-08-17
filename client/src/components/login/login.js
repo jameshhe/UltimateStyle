@@ -23,7 +23,8 @@ class Login extends Component {
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      if (this.state.isStylist === true) {
+      console.log(this.props.auth);
+      if (this.props.auth.user.role === "stylist") {
         this.props.history.push(
           `/stylists/stylistLanding/stylistId=${this.props.auth.user.id}`
         ); // push user to dashboard when they login

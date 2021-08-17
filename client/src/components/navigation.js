@@ -32,8 +32,13 @@ const Navigation = () => {
       className="border-bottom"
       fixed="top"
     >
-      <Navbar.Brand href="/userLanding">
-        {" "}
+      <Navbar.Brand
+        href={
+          user.user.role === "stylist"
+            ? `/stylists/stylistLanding/stylistId=${user.user.id}`
+            : `/userLanding`
+        }
+      >
         <img
           src={logo}
           width="70"
@@ -55,35 +60,35 @@ const Navigation = () => {
             </NavDropdown.Item>
           </NavDropdown>
           {user.user.role === "stylist" ? (
-            <div>
-              <Nav.Link
+            <NavDropdown title="My Information" id="basic-nav-dropdown">
+              {/*<NavDropdown.Item href="/retail">Overview</NavDropdown.Item>*/}
+              <NavDropdown.Item
                 href={`/stylists/appointments/upcoming/stylistId=${user.user.id}`}
               >
                 Upcoming Appointments
-              </Nav.Link>
-              <Nav.Link
+              </NavDropdown.Item>
+              <NavDropdown.Item
                 href={`/stylists/appointments/past/stylistId=${user.user.id}`}
               >
                 Past Appointments
-              </Nav.Link>
-              <Nav.Link
+              </NavDropdown.Item>
+              <NavDropdown.Item
                 href={`/services/servicesOffered/stylistId=${user.user.id}`}
               >
                 Services Offered
-              </Nav.Link>
-              <Nav.Link
+              </NavDropdown.Item>
+              <NavDropdown.Item
                 href={`/stylists/stylistCalendar/stylistId=${user.user.id}`}
               >
-                Calendar{" "}
-              </Nav.Link>
-              <Nav.Link href={`/stylists/stylistId=${user.user.id}/info`}>
+                Calendar
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                href={`/stylists/stylistId=${user.user.id}/info`}
+              >
                 My Profile
-              </Nav.Link>
-            </div>
-          ) : (
-            <></>
-          )}
-          {user.isAuthenticated ? (
+              </NavDropdown.Item>
+            </NavDropdown>
+          ) : user.isAuthenticated ? (
             <Nav.Link href="/UserProfile">My Profile</Nav.Link>
           ) : (
             <></>
