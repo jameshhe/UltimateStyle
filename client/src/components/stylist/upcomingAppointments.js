@@ -43,9 +43,7 @@ const UpcomingApppointments = () => {
     );
   } else {
     return (
-      <div style={{ marginTop: "3%" }}>
-        You have no upcoming appointments. Just wait and that will change!
-      </div>
+      <div style={{ marginTop: "3%" }}>You have no upcoming appointments.</div>
     );
   }
 };
