@@ -41,9 +41,7 @@ const ServicesList = (props) => {
     );
   } else {
     return (
-      <div>
-        there are no services available currently. Please add one Below!
-      </div>
+      <h3>There are no services available currently. Please add one Below!</h3>
     );
   }
 };

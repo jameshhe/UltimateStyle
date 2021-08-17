@@ -78,38 +78,47 @@ onChange={event => setNewService(event.target.value)}
     <>
       <form
         className="container border border-secondary rounded"
-        style={{ width: "50%", height: "50%", marginTop: "3%" }}
+        style={{ width: "50%", height: "50%" }}
       >
-        <h3 className="action">Add Services Offered</h3>
-        <div class="form-group row">
-          <div className="form-group col-md-4">
-            <label htmlFor="name">Service Name</label>
-            <input type="text" {...bindName} />
+        <h3 className="my-3">Add Services Offered</h3>
+        <div class="mb-3 row">
+          <label htmlFor="name" className="col-sm-2 col-form-label">
+            Service
+          </label>
+          <div className="col-sm-4">
+            <input type="text" className="form-control" {...bindName} />
           </div>
-          <div className="form-group col-md-4">
-            <label htmlFor="ItemPrice">Price $:</label>
-            <input type="number" {...bindPrice} />
+
+          <label htmlFor="ItemPrice" className="col-sm-2 col-form-label">
+            Price
+          </label>
+          <div className="col-sm-2">
+            <input type="number" className="form-control" {...bindPrice} />
           </div>
         </div>
-        <div className="row">
-          <div className="form-group col-md-12">
-            <label htmlFor="ItemPrice">Description:</label>
-            <input type="text" {...bindDescription} />
+
+        <div className="mb-3 row">
+          <label htmlFor="ItemPrice" className="col-sm-2 col-form-label">
+            Description
+          </label>
+          <div className="col-sm-10">
+            <input type="text" className="form-control" {...bindDescription} />
           </div>
         </div>
-        <div class="form-group row">
-          <div class="form-group col-md-6">
-            <label for="inputState">Category</label>
+
+        <div class="mb-3 row">
+          <label for="inputState" className="col-sm-2 col-form-label">
+            Category
+          </label>
+          <div className="col-sm-10">
             <select
               id="inputState"
-              class="form-control"
+              class="form-select"
               // disabled={loading}
               // value={startTime}
               onChange={handleChangeCategory}
             >
-              <option selected>
-                Select the category this service falls under
-              </option>
+              <option selected>Select a category</option>
               {categories.map((items, i) => (
                 <option key={i} value={items}>
                   {items}
@@ -120,11 +129,10 @@ onChange={event => setNewService(event.target.value)}
         </div>
 
         <input
-          className="bg-primary"
+          className="btn btn-primary mb-2"
           type="button"
-          value="Submit"
+          value="Save"
           onClick={() => onSend()}
-          text="helloworldAddServices"
         />
       </form>
     </>

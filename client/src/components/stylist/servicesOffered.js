@@ -27,15 +27,11 @@ const ServicesOffered = () => {
     fetchStylist();
   }, [stylist]);
   return (
-    <div
-      className="container-fluid"
-      style={{ marginTop: "3%", marginBottom: "3%" }}
-    >
-      <Link to={`/stylists/stylistLanding/stylistId=${stylistId.id}`}>
-        Back To Your Home Page
-      </Link>
-      <ServicesList id={stylist.id} />
-      <AddServices id={stylist.id} />
+    <div className="text-center row justify-content-center align-items-center h-100 overflow-hidden">
+      <div className="col">
+        <ServicesList id={stylist.id} />
+        <AddServices id={stylist.id} />
+      </div>
     </div>
   );
 };

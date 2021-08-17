@@ -30,7 +30,7 @@ const Navigation = () => {
       variant="dark"
       expand="lg"
       className="border-bottom"
-      fixed="top"
+      fixed="fixed"
     >
       <Navbar.Brand
         href={

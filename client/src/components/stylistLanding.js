@@ -63,7 +63,6 @@ const StylistLanding = () => {
     <div className="text-center row justify-content-center align-items-center h-100">
       <div className="col">
         <h1>
-          {" "}
           Hello {`${user.firstName}  ${user.lastName}`}, Welcome to Ultimate
           Style!
         </h1>
