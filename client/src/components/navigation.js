@@ -36,9 +36,9 @@ const Navigation = () => {
         {" "}
         <img
           src={logo}
-          width="64"
-          height="32"
-          className="d-inline-block align-top mx-2"
+          width="70"
+          height="45"
+          className="d-inline-block align-top ms-4 mb-1"
           alt="Ultimate Style"
         />
       </Navbar.Brand>

@@ -6,6 +6,7 @@ import { login } from "../../actions/authActions";
 import classnames from "classnames";
 import "../register/register.css";
 import RegisterPopup from "../register/registerPopup";
+import background from "../../Background.jpg";
 
 class Login extends Component {
   constructor() {
@@ -73,7 +74,15 @@ class Login extends Component {
     const error = this.state.error;
 
     return (
-      <div className="container">
+      <div
+        style={{
+          backgroundImage: `${background}`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          overflow: "hidden",
+        }}
+        className="container"
+      >
         <div className="row">
           <div className="col-5 col-5 mx-auto">
             <div className="card card-signin flex-row my-5">
