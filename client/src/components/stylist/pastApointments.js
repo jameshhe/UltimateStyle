@@ -44,25 +44,28 @@ const PastAppointments = () => {
 
     fetchAppointments();
   }, [appointments2]);
-  if (appointments2 && appointments2.length > 0) {
-    return (
-      <div
-        className="Services text-center border border-primary"
-        style={{ marginTop: "3%" }}
-      >
-        <h5 className="card-title display-4"> Past Apppointments </h5>
-        <AppointmentsCard
-          appointments={appointments2}
-          currentDate={currentDate}
-        />
+  return (
+    <div className="text-center row align-items-center justify-content-center">
+      <div className="col">
+        {appointments2.length > 0 ? (
+          <div
+            className="Services text-center border border-primary"
+            style={{ marginTop: "3%" }}
+          >
+            <h5 className="card-title display-4"> Past Apppointments </h5>
+            <AppointmentsCard
+              appointments={appointments2}
+              currentDate={currentDate}
+            />
+          </div>
+        ) : (
+          <h2>
+            You don't have any previous appointments. Once you do, they will
+            show up here
+          </h2>
+        )}
       </div>
-    );
-  } else {
-    return (
-      <div style={{ marginTop: "3%" }}>
-        You have no previous appointments. Once you do, they will be shown here
-      </div>
-    );
-  }
+    </div>
+  );
 };
 export default PastAppointments;

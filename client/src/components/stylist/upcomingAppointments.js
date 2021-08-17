@@ -31,20 +31,23 @@ const UpcomingApppointments = () => {
 
     fetchAppointments();
   }, [appointments2]);
-  if (appointments2 && appointments2.length > 0) {
-    return (
-      <div className="Services text-center" style={{ marginTop: "3%" }}>
-        <h5 className="card-title display-4"> Upcoming Apppointments </h5>
-        <AppointmentsCard
-          appointments={appointments2}
-          currentDate={currentDate}
-        />
+
+  return (
+    <div className="text-center row align-items-center justify-content-center">
+      <div className="col">
+        {appointments2.length > 0 ? (
+          <div className="Services text-center border border-primary">
+            <h5 className="card-title display-4"> Upcoming Apppointments </h5>
+            <AppointmentsCard
+              appointments={appointments2}
+              currentDate={currentDate}
+            />
+          </div>
+        ) : (
+          <h2>You don't have any upcoming appointments.</h2>
+        )}
       </div>
-    );
-  } else {
-    return (
-      <div style={{ marginTop: "3%" }}>You have no upcoming appointments.</div>
-    );
-  }
+    </div>
+  );
 };
 export default UpcomingApppointments;
