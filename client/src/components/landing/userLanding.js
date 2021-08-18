@@ -11,7 +11,8 @@ const UserLanding = () => {
   const [user, setUser] = useState({});
   const token = localStorage.jwtToken;
   const URL = `${process.env.REACT_APP_BACKEND}/api/users/appointments/`;
-  const userId = user.id;
+  const store = useSelector((state) => state.auth);
+  const userId = store.user.id;
   const [numAppointments, setNumAppointments] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -38,22 +39,29 @@ const UserLanding = () => {
         .get(URL + userId)
         .then((res) => {
           let returnedAppointments = res.data.appointments;
+          let past = [];
           let future = [];
           returnedAppointments.forEach((appointment) => {
+            let startDate = new Date(appointment.startDate);
             let endDate = new Date(appointment.endDate);
             const now = new Date().toLocaleString();
+            appointment.startDate = startDate.toLocaleString();
             appointment.endDate = endDate.toLocaleString();
-            if (appointment.endDate > now) {
+            if (appointment.endDate < now) {
+              past = [...past, appointment];
+            } else {
               future = [...future, appointment];
             }
           });
+          console.log(future);
           setNumAppointments(future.length);
           setIsLoading(false);
         })
         .catch((err) => console.log(err));
     };
     fetchAppointments();
-  }, [user]);
+  }, []);
+
   const services = [
     "Men's Haircut",
     "Women's Haircut",
@@ -82,7 +90,9 @@ const UserLanding = () => {
             </h1>
             <p>
               You have{" "}
-              <Link to="/userProfile">{numAppointments} appointments</Link>
+              <Link style={{ textDecoration: "none" }} to="/userProfile">
+                {numAppointments} appointments
+              </Link>
             </p>
           </div>
           <div className="card-group">
