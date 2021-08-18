@@ -6,11 +6,32 @@ import Loading from "../loading";
 import { Link } from "react-router-dom";
 
 const UserLanding = () => {
-  const { user } = useSelector((state) => state.auth);
+  // const { user } = useSelector((state) => state.auth);
+
+  const [user, setUser] = useState({});
+  const token = localStorage.jwtToken;
   const URL = `${process.env.REACT_APP_BACKEND}/api/users/appointments/`;
   const userId = user.id;
   const [numAppointments, setNumAppointments] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      await axios
+        .get(`${process.env.REACT_APP_BACKEND}/api/users/me`, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        })
+        .then((res) => {
+          setUser(res.data.user);
+          setIsLoading(false);
+        })
+        .catch((err) => console.log(err));
+    };
+    fetchUser();
+  }, []);
+
   useEffect(() => {
     const fetchAppointments = async () => {
       await axios
@@ -32,7 +53,7 @@ const UserLanding = () => {
         .catch((err) => console.log(err));
     };
     fetchAppointments();
-  }, []);
+  }, [user]);
   const services = [
     "Men's Haircut",
     "Women's Haircut",
@@ -42,8 +63,8 @@ const UserLanding = () => {
     "Nails",
   ];
   const imageURLs = [
-    "https://images.unsplash.com/photo-1519019121902-896ed7312a9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-    "https://images.pexels.com/photos/3993443/pexels-photo-3993443.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "https://images.unsplash.com/photo-1603899968034-1a56ca48d172?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934",
+    "https://images.unsplash.com/photo-1562322140-8baeececf3df?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     "https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     "https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
     "https://images.unsplash.com/photo-1531299244174-d247dd4e5a66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1270&q=80",
@@ -64,7 +85,7 @@ const UserLanding = () => {
               <Link to="/userProfile">{numAppointments} appointments</Link>
             </p>
           </div>
-          <div className="row row-cols-1 row-cols-md-3">
+          <div className="card-group">
             {services.map((service, index) => (
               <ServiceBox
                 key={index}

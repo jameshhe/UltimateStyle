@@ -50,7 +50,7 @@ const StylistsList = () => {
             </ul>
           </div>
 
-          <div className="col-3 p-2 overflow-hidden">
+          {/* <div className="col-3 p-2 overflow-hidden">
             {console.log(stylists)}
             {stylists.length > 0 && (
               <Map
@@ -64,7 +64,7 @@ const StylistsList = () => {
                 }}
               />
             )}
-          </div>
+          </div> */}
         </div>
       )}
     </div>

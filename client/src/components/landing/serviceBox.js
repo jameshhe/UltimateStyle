@@ -5,17 +5,19 @@ const ServiceBox = ({ imageURL, service }) => {
   const searchURL = "/api/stylists/search/services";
   return (
     <div className="col">
-      <div className="card w-50 h-100">
-        <Link to={`${searchURL}/${service}`}>
+      <div className="card border-dark mx-2 h-100">
+        <Link
+          to={`${searchURL}/${service}`}
+          className="text-black"
+          style={{ textDecoration: "none" }}
+        >
+          <div className="card-header border-dark">{service}</div>
           <img
             className="card-img-top"
             src={imageURL}
             alt="Card image cap"
             height="150"
           />
-          <div className="card-body">
-            <h5 className="card-title text-center border-dark">{service}</h5>
-          </div>
         </Link>
       </div>
     </div>

@@ -69,9 +69,9 @@ const StylistLanding = () => {
         <div className="container"></div>
         <div>
           <div>
-            <UpcomingAppointments />
+            <AddAvailability />
           </div>
-          <div className="row">
+          {/* <div className="row">
             <div className="col center-align">
               <Link
                 to={`/stylists/stylistCalendar/stylistId=${user.id}`}
@@ -86,7 +86,7 @@ const StylistLanding = () => {
                 Calendar
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

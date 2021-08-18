@@ -169,10 +169,10 @@ export const AddAvailability = () => {
   return (
     <>
       <form
-        className="container text-info border border-info rounded"
+        className="container border border-info rounded"
         style={{ width: "50%", height: "50%", marginTop: "3%" }}
       >
-        <h3 className="action">Add Your Availability for the upcoming week</h3>
+        <h3>Add Your Availability for the upcoming week</h3>
         <div class="form-group row">
           <label for="inputState">Day</label>
           <select
@@ -180,17 +180,14 @@ export const AddAvailability = () => {
             class="form-control"
             onChange={handleChangeDay}
           >
-            <option selected>
-              Choose the day of the week that you would like to input your
-              availability
-            </option>
+            <option selected>Choose the available day</option>
             {days.map((items, i) => (
               <option key={i} value={i + 1}>
                 {items.day}
               </option>
             ))}
           </select>
-          <label for="inputState">Add an apointment time</label>
+          <label for="inputState">Time</label>
           <select
             id="inputState"
             class="form-control"
@@ -205,9 +202,9 @@ export const AddAvailability = () => {
           </select>
         </div>
         <input
-          className="bg-primary"
+          className="btn btn-primary my-2"
           type="button"
-          value="Submit"
+          value="Add"
           onClick={() => onSend()}
           text="helloworldAddServices"
         />
