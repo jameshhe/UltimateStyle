@@ -62,6 +62,7 @@ const UserProfile = () => {
               future = [...future, appointment];
             }
           });
+
           setPastAppointments(past);
           setFutureAppointments(future);
           setIsLoading(false);
