@@ -6,7 +6,7 @@ import { login } from "../../actions/authActions";
 import classnames from "classnames";
 import "../register/register.css";
 import RegisterPopup from "../register/registerPopup";
-import background from "../../Background.jpg";
+import background from "../../LandingBackground.jpg";
 
 class Login extends Component {
   constructor() {
@@ -149,7 +149,7 @@ class Login extends Component {
                   <hr />
                   <button
                     type="button"
-                    className="btn btn-lg btn-primary btn-block text-uppercase"
+                    className="btn btn-primary btn-block"
                     onClick={this.onSubmit}
                   >
                     Login

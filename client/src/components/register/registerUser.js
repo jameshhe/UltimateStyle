@@ -163,7 +163,7 @@ class RegisterUser extends Component {
                   </div>
 
                   <button
-                    className="btn btn-lg btn-primary btn-block text-uppercase"
+                    className="btn btn-primary btn-block ms-2"
                     type="submit"
                   >
                     Register

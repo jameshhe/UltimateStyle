@@ -29,7 +29,7 @@ const ServicesList = (props) => {
         <div className="card">
           {services.map((service, i) => (
             <div className="m-3 border border-info rounded text-left" key={i}>
-              <div className="h3">Service {i}</div>
+              <div className="h3">Service {i + 1}</div>
               <p className="font-weight-bold"> Service Name: {service.name}</p>
               <p> Description: {service.description}</p>
               <p> Cateogry: {service.category}</p>

@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import RegisterPopup from "./register/registerPopup";
-import logo from "../UltimateStyle.png";
-import background from "../Background.jpg";
+import Loading from "./loading";
+import bg from "../LandingBackground.jpg";
 
 const Landing = () => {
-  const [modalShow, setModalShow] = useState(false);
-
   return (
     <div
       style={{
-        backgroundImage: `${background}`,
+        backgroundImage: `url("${bg}")`,
         backgroundPosition: "center",
         backgroundSize: "cover",
-        overflow: "hidden",
       }}
-      className="text-center row align-items-center h-100"
+      className="text-center row align-items-center h-100 overflow-hidden"
     >
       {/* <img
         className="mt-5 mx-auto"

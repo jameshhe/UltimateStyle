@@ -88,7 +88,7 @@ export const userLogin = async (req, res, next) => {
     console.log("Hello there.");
     const currUser = await User.findOne({ email }).select("+password");
     if (!currUser) {
-      return next(new ErrorResponse("Invalid Credentials", 401));
+      return next(new ErrorResponse("Email not found!", 401));
     }
     const isMatch = await currUser.matchPassword(password);
     if (!isMatch) {
