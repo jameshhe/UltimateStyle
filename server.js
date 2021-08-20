@@ -3,6 +3,7 @@ import cors from "cors";
 import express from "express";
 import routes from "./routes/index.js";
 import dotenv from "dotenv";
+import path from "path";
 
 dotenv.config();
 
@@ -12,7 +13,7 @@ app.use(cors());
 // we need these two lines, otherwise there is no middleware!
 app.use(express.json());
 app.use(express.urlencoded());
-
+const __dirname = path.resolve();
 app.use("/", express.static(path.join(__dirname, "/client/build")));
 routes(app);
 
