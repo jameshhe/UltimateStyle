@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import logo from "../UltimateStyle.png";
-
+import React, { useState } from "react";
 import {
   Button,
-  Navbar,
-  Nav,
-  NavDropdown,
   Form,
   FormControl,
-  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
 } from "react-bootstrap";
-import { useDispatch, useSelector, useStore } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../actions/authActions";
+import logo from "../UltimateStyle.png";
+
 const URL = `${process.env.REACT_APP_BACKEND}`;
 
 const Navigation = () => {

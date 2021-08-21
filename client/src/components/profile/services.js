@@ -1,6 +1,6 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ServicePopup from "./servicePopup";
-import axios from "axios";
 
 const Services = ({ services, stylistId }) => {
   const [modalShow, setModalShow] = useState(false);

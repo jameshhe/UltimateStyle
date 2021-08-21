@@ -1,14 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
-import PropTypes from "prop-types";
-import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "../actions/authActions";
-import { Link } from "react-router-dom";
-import StylistCalendar from "./stylist/stylistCalendar";
-import AddServices from "./stylist/addServices";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import AddAvailability from "./stylist/AddAvailability";
-import UpcomingAppointments from "./stylist/upcomingAppointments";
 // const appointmentsOrAdd = ({ stylist }, { services }, { appointments }) => {
 //   console.log("servicios, ", services);
 //   console.log("appuntomentos, ", appointments);

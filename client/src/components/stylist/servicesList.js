@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import axios from "axios";
-import Loading from "../loading";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "react-tabs/style/react-tabs.css";
-import { CustomPlaceholder } from "react-placeholder-image";
-import ReviewBox from "../profile/reviewBox";
-import Rating from "../rating/rating";
 const ServicesList = (props) => {
   const [services, setServices] = useState({});
   const stylistId = useParams();

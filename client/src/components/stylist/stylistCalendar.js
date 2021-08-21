@@ -1,22 +1,21 @@
-import * as React from "react";
-import Paper from "@material-ui/core/Paper";
-import { ViewState, EditingState } from "@devexpress/dx-react-scheduler";
+import { EditingState, ViewState } from "@devexpress/dx-react-scheduler";
 import {
-  Scheduler,
-  DayView,
-  WeekView,
+  AllDayPanel,
+  AppointmentForm,
   Appointments,
+  AppointmentTooltip,
+  ConfirmationDialog,
+  DayView,
+  EditRecurrenceMenu,
+  MonthView,
+  Scheduler,
   Toolbar,
   ViewSwitcher,
-  MonthView,
-  AppointmentForm,
-  AppointmentTooltip,
-  EditRecurrenceMenu,
-  AllDayPanel,
-  ConfirmationDialog,
+  WeekView,
 } from "@devexpress/dx-react-scheduler-material-ui";
-import { useParams } from "react-router-dom";
+import Paper from "@material-ui/core/Paper";
 import axios from "axios";
+import * as React from "react";
 import AddAvailability from "./AddAvailability";
 export default class StylistCalendar extends React.PureComponent {
   state = {

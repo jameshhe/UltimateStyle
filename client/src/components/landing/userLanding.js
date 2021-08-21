@@ -1,9 +1,9 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import ServiceBox from "./serviceBox";
-import axios from "axios";
-import Loading from "../loading";
 import { Link } from "react-router-dom";
+import Loading from "../loading";
+import ServiceBox from "./serviceBox";
 
 const UserLanding = () => {
   // const { user } = useSelector((state) => state.auth);

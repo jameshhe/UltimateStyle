@@ -1,15 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import axios from "axios";
-import Loading from "../loading";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "react-tabs/style/react-tabs.css";
-import { CustomPlaceholder } from "react-placeholder-image";
-import ReviewBox from "../profile/reviewBox";
-import Rating from "../rating/rating";
-import ServicesList from "./servicesList";
 import { AddServices } from "./addServices";
+import ServicesList from "./servicesList";
 const ServicesOffered = () => {
   const [stylist, setStylist] = useState({});
   const [isLoading, setIsLoading] = useState(true);

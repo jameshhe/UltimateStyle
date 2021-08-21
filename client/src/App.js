@@ -1,21 +1,17 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Provider, useDispatch } from "react-redux";
-import { setCurrentUser, logoutUser } from "./actions/authActions";
-import jwt_decode from "jwt-decode";
-import setAuthToken from "./utils/setAuthToken";
-import store from "./store";
-import { ROUTES } from "./routes";
-
-import PrivateRoute from "./components/PrivateRoute";
-import Navigation from "./components/navigation";
-import Landing from "./components/landing";
-import Login from "./components/login/login";
-import RegisterUser from "./components/register/registerUser";
-import RegisterStylist from "./components/register/registerStylist";
-import SendPassword from "./components/sendPassword";
-
 import dotenv from "dotenv";
+import jwt_decode from "jwt-decode";
+import React from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { logoutUser, setCurrentUser } from "./actions/authActions";
+
+import Navigation from "./components/navigation";
+import PrivateRoute from "./components/PrivateRoute";
+
+import { PRIVATE_ROUTES } from "./private-routes";
+import { ROUTES } from "./routes";
+import store from "./store";
+import setAuthToken from "./utils/setAuthToken";
 
 dotenv.config();
 
@@ -44,14 +40,13 @@ function App() {
       <div className="App">
         <Router>
           <Navigation />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/home" component={Landing} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/user/register" component={RegisterUser} />
-          <Route exact path="/stylist/register" component={RegisterStylist} />
-          <Route exact path="/resetPassword" component={SendPassword} />
           <Switch>
             {ROUTES.map((route, i) => (
+              <Route exact key={i} {...route} />
+            ))}
+          </Switch>
+          <Switch>
+            {PRIVATE_ROUTES.map((route, i) => (
               <PrivateRoute exact key={i} {...route} />
             ))}
           </Switch>
