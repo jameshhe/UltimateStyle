@@ -34,7 +34,7 @@ const Navigation = () => {
         href={
           user.user.role === "stylist"
             ? `/stylists/stylistLanding/stylistId=${user.user.id}`
-            : `/userLanding`
+            : `/`
         }
       >
         <img
