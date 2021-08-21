@@ -1,7 +1,7 @@
 # Ultimate Style
 
 Ultimate Style is a website that allows customers to search, book, and review hair stylists and allows stylists to track appointments
-* Link: https://ultimatestyle.netlify.app
+* Link: https://ultimate-style.herokuapp.com/
 
 ## Site
 ![Landing Page](https://github.com/jameshhe/haircutUber/blob/main/ultimate-style-landing.png)
