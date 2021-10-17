@@ -9,14 +9,24 @@ const StylistsList = () => {
   const URL = `${process.env.REACT_APP_BACKEND}/api/stylists/search`;
   const [stylists, setStylists] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { queries } = useParams();
+  const parseQueries = (queries) => {
+    let queryList = queries.split("&");
+    let queryParams = {};
+    queryList.map((query) => {
+      let [key, value] = query.split("=");
+      if (value != "undefined") queryParams[key] = value;
+    });
+    return queryParams;
+  };
 
-  const queries = useParams();
-
+  let queryParams = parseQueries(queries);
+  console.log(queryParams);
   useEffect(() => {
     const getStylists = async () => {
       await axios
         .get(URL, {
-          params: queries,
+          params: queryParams,
         })
         .then((res) => {
           setStylists(res.data.returnedStylists);
