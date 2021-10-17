@@ -46,7 +46,7 @@ const StylistsList = () => {
       ) : (
         <div className="row">
           <div className="col-2 overflow-hidden">
-            <SearchFilter queries={queries} />
+            <SearchFilter queries={queryParams} />
           </div>
 
           <div className="p-0 border-left col-7 overflow-auto">
