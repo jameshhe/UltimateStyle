@@ -27,7 +27,6 @@ const Services = ({ services, stylistId }) => {
             let endDate = new Date(appointment.endDate);
             appointment.endDate = endDate.toLocaleString();
           });
-          console.log("Available: ", availableAppointments);
           setAppointments(availableAppointments);
         })
         .catch((err) => console.log(err));

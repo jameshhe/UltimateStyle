@@ -19,20 +19,24 @@ const ReviewBox = (props) => {
         </Link>
       </div>
 
-      <div className="ReviewBox-Reviews">
-        <header className="display-5">Reviews</header>
-        {props.reviews.map((review, index) => (
-          <div className="Review-Card card my-2 p-2" key={index}>
-            <h6 className="m-1" key={review._id}>
-              {review.reviewerName}{" "}
-            </h6>
-            <h1>
-              <Rating rating={review.score} />
-            </h1>
-            <p>{review.notes}</p>
-          </div>
-        ))}
-      </div>
+      {props.reviews.length === 0 ? (
+        <></>
+      ) : (
+        <div className="ReviewBox-Reviews">
+          <header className="display-5">Reviews</header>
+          {props.reviews.map((review, index) => (
+            <div className="Review-Card card my-2 p-2" key={index}>
+              <h6 className="m-1" key={review._id}>
+                {review.reviewerName}
+              </h6>
+              <h1>
+                <Rating rating={review.score} />
+              </h1>
+              <p>{review.notes}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
