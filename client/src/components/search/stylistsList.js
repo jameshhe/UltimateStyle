@@ -20,9 +20,7 @@ const StylistsList = () => {
         })
         .then((res) => {
           setStylists(res.data.returnedStylists);
-          console.log(res.data.returnedStylists);
           setIsLoading(false);
-          console.log("Stylists data fetched");
         })
         .catch((err) => console.log(err));
     };

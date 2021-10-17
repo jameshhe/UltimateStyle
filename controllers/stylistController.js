@@ -215,6 +215,7 @@ export const addAppointment = async (req, res, next) => {
  */
 
 export const searchStylist = async (req, res, next) => {
+  console.log("in search stylist");
   try {
     const { name, within, min, rat, services, long, lat } = req.query;
     let returnedStylists;
