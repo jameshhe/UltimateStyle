@@ -3,7 +3,7 @@ import Rating from "./rating";
 
 const RatingFilter = ({ queries }) => {
   const ratings = [5, 4, 3, 2, 1];
-  const searchURL = "/stylists/search";
+  const searchURL = "/stylists/search/haircuts";
 
   return (
     <div>
