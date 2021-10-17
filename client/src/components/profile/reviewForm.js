@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 
-export const ReviewForm = () => {
+export default function ReviewForm() {
   // this didn't work on my end...
   const { user } = useSelector((state) => state.auth);
   const [rating, setRating] = useState(0);
@@ -64,15 +64,12 @@ export const ReviewForm = () => {
           onChange={(e) => setReviewNote(e.target.value)}
           value={reviewNote}
           className="form-control w-75 mx-auto h-75"
-        >
-          {" "}
-        </textarea>
+        ></textarea>
       </div>
 
       <button type="submit" className="btn btn-primary d-block mx-auto">
-        {" "}
-        Add Review{" "}
+        Add Review
       </button>
     </form>
   );
-};
+}

@@ -1,7 +1,7 @@
 import ChangePassword from "./components/changePassword";
 import UserLanding from "./components/landing/userLanding";
 import EditProfile from "./components/profile/editProfile";
-import { ReviewForm } from "./components/profile/reviewForm";
+import ReviewForm from "./components/profile/reviewForm";
 import StylistProfile from "./components/profile/stylistProfile";
 import UserProfile from "./components/profile/userProfile";
 import SendPassword from "./components/sendPassword";
@@ -34,5 +34,5 @@ export const PRIVATE_ROUTES = [
     path: "/stylists/appointments/past/stylistId=:id",
     component: PastAppointments,
   },
-  { path: "/addReviews/stylistId=:id", component: ReviewForm },
+  { path: "/addReview/stylistId=:id", component: ReviewForm },
 ];
