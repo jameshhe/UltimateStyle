@@ -15,7 +15,7 @@ const URL = `${process.env.REACT_APP_BACKEND}`;
 
 const Navigation = () => {
   const [name, setName] = useState("");
-  const searchURL = "/stylists/search/haircuts/";
+  const searchURL = "/stylists/search/";
   const user = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const onLogout = () => {
@@ -101,7 +101,7 @@ const Navigation = () => {
           placeholder="Search a Stylist"
         />
       </Form>
-      <a className="ms-2" href={`${searchURL}name=${name}`}>
+      <a className="ms-2" href={`${searchURL}haircuts/name=${name}`}>
         <Button variant="dark">Search</Button>
       </a>
       {user.isAuthenticated ? (
