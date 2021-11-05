@@ -56,13 +56,18 @@ export const createStylist = async (req, res, next) => {
   } else {
     return next(new ErrorResponse("Stylist already exists", 400));
   }
+
   try {
+    console.log("before testing save stylist");
+    console.dir(stylist, { depth: null });
     const newStylist = await stylist.save();
+    console.log("testing save stylist");
     //create token
     const token = stylist.getSignedJwtToken();
-
+    console.log("testing get token");
     res.json({ sucess: true, token, newStylist });
   } catch (err) {
+    console.log("Unable to register stylist");
     next(err);
   }
 };

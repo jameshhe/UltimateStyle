@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
-import { geocoder } from "../utils/geocoder.js";
+// import { geocoder } from "../utils/geocoder.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
@@ -105,18 +105,18 @@ UserSchema.pre("save", async function (next) {
   // hass been modified to avoid using api when not necessary
   if ((!exists && this.address) || this.isModified("address")) {
     console.log("api function executed");
-    const loc = await geocoder.geocode(this.address);
+    // const loc = await geocoder.geocode(this.address);
 
-    this.location = {
-      type: "Point",
-      coordinates: [loc[0].longitude, loc[0].latitude],
-      formattedAddress: loc[0].formattedAddress,
-      street: loc[0].streetName,
-      city: loc[0].city,
-      state: loc[0].state,
-      zipcode: loc[0].zipcode,
-      country: loc[0].countryCode,
-    };
+    // this.location = {
+    //   type: "Point",
+    //   coordinates: [loc[0].longitude, loc[0].latitude],
+    //   formattedAddress: loc[0].formattedAddress,
+    //   street: loc[0].streetName,
+    //   city: loc[0].city,
+    //   state: loc[0].state,
+    //   zipcode: loc[0].zipcode,
+    //   country: loc[0].countryCode,
+    // };
   }
   next();
 });

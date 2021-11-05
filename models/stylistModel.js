@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
-import { geocoder } from "../utils/geocoder.js";
+// import { geocoder } from "../utils/geocoder.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
@@ -144,10 +144,12 @@ const StylistSchema = new Schema(
 StylistSchema.pre("save", async function (next) {
   var self = this;
   var exists = !this.isNew;
+
   await mongoose
     .model("StylistModel", StylistSchema)
     .find({ email: self.email }, function (err, docs) {
       if (!docs.length) {
+        console.log("document does not exist");
         exists = false;
       } else {
         console.log("document exists");
@@ -164,22 +166,22 @@ StylistSchema.pre("save", async function (next) {
 
   // check if docuemnt is new and address exists and also checks if address
   // hass been modified to avoid using api when not necessary
-  if ((!exists && this.address) || this.isModified("address")) {
-    console.log("api function executed");
-    console.log(this.address);
-    const loc = await geocoder.geocode(this.address);
-    console.log(loc);
-    this.location = {
-      type: "Point",
-      coordinates: [loc[0].longitude, loc[0].latitude],
-      formattedAddress: loc[0].formattedAddress,
-      street: loc[0].streetName,
-      city: loc[0].city,
-      state: loc[0].state,
-      zipcode: loc[0].zipcode,
-      country: loc[0].countryCode,
-    };
-  }
+  // if ((!exists && this.address) || this.isModified("address")) {
+  //   console.log("api function executed");
+  //   console.log(this.address);
+  //   // const loc = await geocoder.geocode(this.address);
+  //   // console.log(loc);
+  //   // this.location = {
+  //   //   type: "Point",
+  //   //   coordinates: [loc[0].longitude, loc[0].latitude],
+  //   //   formattedAddress: loc[0].formattedAddress,
+  //   //   street: loc[0].streetName,
+  //   //   city: loc[0].city,
+  //   //   state: loc[0].state,
+  //   //   zipcode: loc[0].zipcode,
+  //   //   country: loc[0].countryCode,
+  //   // };
+  // }
   next();
 });
 

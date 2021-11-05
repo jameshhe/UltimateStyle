@@ -14,14 +14,15 @@ dotenv.config({ path: "./config/config.env" });
 //@route         POST /users/register
 //@access        Public
 export const createUser = async (req, res, next) => {
-  console.log(`Request body: ${req.body}`);
+  console.dir(req.body, { depth: null });
   let user = await User.findOne({ email: req.body.email });
   if (!user) {
     user = new User(req.body);
   } else {
-    console.log(user);
+    console.log(`user already exists: ${user}`);
     return next(new ErrorResponse("User already exists", 400));
   }
+
   try {
     console.log("we are in the instance");
     console.log(req);
