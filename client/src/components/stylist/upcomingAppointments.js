@@ -14,10 +14,12 @@ const UpcomingApppointments = () => {
           `${process.env.REACT_APP_BACKEND}/api/stylists/appointments/${stylistId.id}`
         )
         .then((res) => {
-          const appts = res.data.appointments.filter((event) => {
-            return Date.parse(event.startDate) >= Date.parse(currentDate);
-          });
-          setAppointments(appts.filter((appt) => appt.pending === false));
+          const appointments = res.data.appointments.filter(
+            (appointment) =>
+              Date.parse(appointment.startDate) >= Date.parse(currentDate) &&
+              appointment.user !== null
+          );
+          setAppointments(appointments);
         });
     };
 

@@ -79,6 +79,7 @@ export default class StylistCalendar extends React.PureComponent {
       if (deleted !== undefined) {
         data = data.filter((appointment) => appointment.id !== deleted);
       }
+
       return { data };
     });
   }
@@ -90,7 +91,6 @@ export default class StylistCalendar extends React.PureComponent {
       appointmentChanges,
       editingAppointment,
     } = this.state;
-    data.filter((event) => event.pending === false);
     return (
       <div
         className="container"
@@ -142,9 +142,12 @@ export default class StylistCalendar extends React.PureComponent {
     );
   }
   componentDidMount() {
-    this.getStylistByID(this.state.stylistId).then((stylist) =>
-      this.setState({ stylist }, () => {
-        this.setState({ data: stylist });
+    this.getStylistByID(this.state.stylistId).then((appointments) =>
+      this.setState({ appointments }, () => {
+        appointments = appointments.filter(
+          (appointment) => appointment.user === null
+        );
+        this.setState({ data: appointments });
       })
     );
   }
