@@ -9,7 +9,6 @@ const BookingPopup = ({ show, onHide, appointment }) => {
   const bookURL = `${process.env.REACT_APP_BACKEND}/api/users/appointments/book/`;
   const store = useSelector((state) => state.auth);
   const userId = store.user.id;
-
   const onBookAppointment = async () => {
     await axios
       .put(bookURL + appointment._id, { userId: userId })
@@ -24,7 +23,7 @@ const BookingPopup = ({ show, onHide, appointment }) => {
   return (
     <div>
       <Modal show={show} onHide={onHide} centered>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Finalize Booking</Modal.Title>
         </Modal.Header>
         <Modal.Body className="mx-auto">
