@@ -1,4 +1,5 @@
 import { EditingState, ViewState } from "@devexpress/dx-react-scheduler";
+import { useHistory, useParams, Link } from "react-router-dom";
 import {
   AllDayPanel,
   AppointmentForm,
@@ -95,7 +96,16 @@ export default class StylistCalendar extends React.PureComponent {
         className="container"
         style={{ marginTop: "3%", marginBottom: "3%" }}
       >
-        <h2> Your Calendar </h2>
+        <div className="row justify-content-between mb-2">
+          <h2 className="col-10"> Your Calendar </h2>
+          <Link
+            to={`/stylists/addAvailability/stylistId=${this.state.stylistId}`}
+            className="col-2 btn btn-primary p-1 align-self-center"
+          >
+            Add availability
+          </Link>
+        </div>
+
         <div className="row">
           <div className="col">
             <Paper>
@@ -128,7 +138,6 @@ export default class StylistCalendar extends React.PureComponent {
             </Paper>
           </div>
         </div>
-        <AddAvailability />
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 const times = [
   {
@@ -74,6 +74,8 @@ export const AddAvailability = () => {
   const URL = `${process.env.REACT_APP_BACKEND}/api`;
   const [day, setDay] = useState(1);
   const [startTime, setStartTime] = useState("");
+  let history = useHistory();
+
   const onSend = () => {
     console.log("FIRST", currentDate);
     const dOTW = currentDate.getDay();
@@ -124,6 +126,8 @@ export const AddAvailability = () => {
         )
         .then((res) => {
           setAppointments(res.data.appointments);
+          alert("Appointment added!");
+          history.push(`/stylists/stylistCalendar/stylistId=${stylistId.id}`);
         })
         .catch((err) =>
           //   dispatch({
@@ -173,27 +177,27 @@ export const AddAvailability = () => {
         style={{ width: "50%", height: "50%", marginTop: "3%" }}
       >
         <h3>Add Your Availability for the upcoming week</h3>
-        <div class="form-group row">
-          <label for="inputState">Day</label>
+        <div className="form-group row">
+          <label htmlFor="inputState">Day</label>
           <select
             id="inputState"
-            class="form-control"
+            className="form-control"
             onChange={handleChangeDay}
           >
-            <option selected>Choose the available day</option>
+            <option>Choose the available day</option>
             {days.map((items, i) => (
               <option key={i} value={i + 1}>
                 {items.day}
               </option>
             ))}
           </select>
-          <label for="inputState">Time</label>
+          <label htmlFor="inputState">Time</label>
           <select
             id="inputState"
-            class="form-control"
+            className="form-control"
             onChange={handleChangeStartTime}
           >
-            <option selected>Add an available time</option>
+            <option>Add an available time</option>
             {times.map((items, i) => (
               <option key={i} value={i}>
                 {items.startTime} - {items.endTime}

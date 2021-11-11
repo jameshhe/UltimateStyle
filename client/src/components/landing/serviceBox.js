@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ServiceBox = ({ imageURL, service }) => {
-  const searchURL = "/api/stylists/search/services";
+  const searchURL = `${process.env.REACT_APP_BACKEND}/api/stylists/search/services`;
   return (
     <div className="col">
       <div className="card border-dark mx-2 h-100">

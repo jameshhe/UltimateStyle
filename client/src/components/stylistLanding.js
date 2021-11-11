@@ -53,34 +53,12 @@ const StylistLanding = () => {
     fetchAppointments();
   }, [appointments]);
   return (
-    <div className="text-center row justify-content-center align-items-center h-100">
+    <div className="text-center row justify-content-center align-items-center">
       <div className="col">
         <h1>
           Hello {`${user.firstName}  ${user.lastName}`}, Welcome to Ultimate
           Style!
         </h1>
-        <div className="container"></div>
-        <div>
-          <div>
-            <AddAvailability />
-          </div>
-          {/* <div className="row">
-            <div className="col center-align">
-              <Link
-                to={`/stylists/stylistCalendar/stylistId=${user.id}`}
-                style={{
-                  width: "140px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px",
-                  padding: "12px",
-                }}
-                className="btn btn-large btn-flat waves-effect blue black-text"
-              >
-                Calendar
-              </Link>
-            </div>
-          </div> */}
-        </div>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import ServicesOffered from "./components/stylist/servicesOffered";
 import StylistCalendar from "./components/stylist/stylistCalendar";
 import UpcomingApppointments from "./components/stylist/upcomingAppointments";
 import StylistLanding from "./components/stylistLanding";
+import AddAvailability from "./components/stylist/AddAvailability";
 export const PRIVATE_ROUTES = [
   { path: "/editProfile", component: EditProfile },
   { path: "/userProfile", component: UserProfile },
@@ -33,6 +34,10 @@ export const PRIVATE_ROUTES = [
   {
     path: "/stylists/appointments/past/stylistId=:id",
     component: PastAppointments,
+  },
+  {
+    path: "/stylists/addAvailability/stylistId=:id",
+    component: AddAvailability,
   },
   { path: "/addReview/stylistId=:id", component: ReviewForm },
 ];
