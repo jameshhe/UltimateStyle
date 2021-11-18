@@ -21,7 +21,6 @@ const Navigation = () => {
   const onLogout = () => {
     dispatch(logoutUser());
   };
-
   return (
     <Navbar
       bg="dark"
@@ -32,7 +31,7 @@ const Navigation = () => {
     >
       <Navbar.Brand
         href={
-          user.user.role === "stylist"
+          user && user.user.role === "stylist"
             ? `/stylists/stylistLanding/stylistId=${user.user.id}`
             : `/`
         }
@@ -57,7 +56,7 @@ const Navigation = () => {
               Waxing
             </NavDropdown.Item>
           </NavDropdown>
-          {user.user.role === "stylist" ? (
+          {user && user.user.role === "stylist" ? (
             <NavDropdown title="My Information" id="basic-nav-dropdown">
               {/*<NavDropdown.Item href="/retail">Overview</NavDropdown.Item>*/}
               <NavDropdown.Item
@@ -86,7 +85,7 @@ const Navigation = () => {
                 My Profile
               </NavDropdown.Item>
             </NavDropdown>
-          ) : user.isAuthenticated ? (
+          ) : user && user.isAuthenticated ? (
             <Nav.Link href="/UserProfile">My Profile</Nav.Link>
           ) : (
             <></>
@@ -104,7 +103,7 @@ const Navigation = () => {
       <a className="ms-2" href={`${searchURL}haircuts/name=${name}`}>
         <Button variant="dark">Search</Button>
       </a>
-      {user.isAuthenticated ? (
+      {user && user.isAuthenticated ? (
         <button onClick={onLogout} className="btn btn-warning mx-2">
           Logout
         </button>
